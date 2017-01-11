@@ -51,8 +51,6 @@ import com.wdullaer.materialdatetimepicker.TypefaceHelper;
 import com.wdullaer.materialdatetimepicker.Utils;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout.OnValueSelectedListener;
 
-import org.w3c.dom.Text;
-
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -585,8 +583,8 @@ public class TimePickerDialog extends DialogFragment implements
                 } else {
                     tryVibrate();
                 }
-                notifyOnDateListener();
                 dismiss();
+                notifyOnDateListener();
             }
         });
         mOkButton.setOnKeyListener(keyboardListener);
@@ -1203,11 +1201,11 @@ public class TimePickerDialog extends DialogFragment implements
                 }
                 finishKbMode(false);
             }
+            dismiss();
             if (mCallback != null) {
                 mCallback.onTimeSet(this,
                         mTimePicker.getHours(), mTimePicker.getMinutes(), mTimePicker.getSeconds());
             }
-            dismiss();
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_DEL) {
             if (mInKbMode) {
